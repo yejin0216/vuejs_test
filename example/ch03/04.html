@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>hello vue.js</title>
+    <script src="http://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+<div id="test">
+    <input type="text" v-model="num"/>
+    <h2>{{sum()}}</h2>
+</div>
+<script type="text/javascript">
+    //1부터 입력된 수까지의 합 구하기
+    var model = {
+        num: 0
+    }
+    var vm = new Vue({
+        el: '#test',
+        data: model,
+        methods: {
+            sum: function () {
+                console.log(new Date())
+                var n = Number(this.num);
+                if ( Number.isNaN(n) || n<1) return 0;
+                return (n*(n+1))/2;
+            }
+        }
+    })
+</script>
+</body>
+</html>
